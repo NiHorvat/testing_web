@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.entries-container {
+    position: relative;
+    width: 400px;
+    height: 711px;
+    margin: 0 auto;
+}
+
+.entry-card {
+    position: absolute;
+    width: 400px;
+    height: 711px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    will-change: transform;
+    pointer-events: auto;
+}
+
+.entry-card.removed {
+    display: none;
+}
+
+.entry-card h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.entry-card p {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.timestamp {
+    color: #999;
+    font-size: 0.8em;
+    display: block;
+    text-align: right;
+}
+
+.swipe-indicator {
+    position: absolute;
+    top: 50px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.like-indicator {
+    right: 40px;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    transform: rotate(15deg);
+}
+
+.nope-indicator {
+    left: 40px;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    transform: rotate(-15deg);
+}
+
+.entry-card.swiping-right .like-indicator {
+    opacity: 1;
+}
+
+.entry-card.swiping-left .nope-indicator {
+    opacity: 1;
+}
+
+.action-buttons {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;
+    z-index: 1000;
+}
+
+.action-buttons button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 44px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.action-buttons button:hover {
+    transform: scale(1.1);
+}
+
+.reject-button {
+    background-color: #ff4444;
+    color: white;
+}
+
+.accept-button {
+    background-color: #44dd44;
+    color: white;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.entries-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+}
+
+.counters {
+    position: fixed;
+    right: 30px;
+    top: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.counter {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    min-width: 120px;
+}
+
+.counter-label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.counter-value {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.likes-counter {
+    border: 3px solid #44dd44;
+    color: #44dd44;
+}
+
+.nopes-counter {
+    border: 3px solid #ff4444;
+    color: #ff4444;
+}
+
+.end-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px 60px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-align: center;
+    z-index: 1000;
+}
+
+.end-emoji {
+    font-size: 50px;
+    margin-bottom: 20px;
+    animation: bounce 1s infinite;
+}
+
+.final-emoji {
+    font-size: 40px;
+    margin-top: 20px;
+    animation: rotate 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(20deg);
+    }
+    75% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.end-message h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.end-message p {
+    color: #666;
+    font-size: 18px;
+}
